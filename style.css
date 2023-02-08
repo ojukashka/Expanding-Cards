@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:wght@400;700&display=swap');
+
+/* Universal selector: the style applies to everything */
+
+* {
+  box-sizing: border-box;
+}
+
+/* box-sizing: border-box, if we add any padding or border
+ it doesnt affect the width of it */
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+/* if the panel div also have the active class */
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+/* flex: 0.5 - the width, now they are all 0.5 and even, 
+after that we could change it to flex: 5
+in order to expand */
+
+/* separate the cards: margin: 10px */
+
+/* position: relative here 
+and the h3 should have position absolute
+in order to set the h3 to absolute
+the panel should be relative
+
+and the h3 should have an absolute position
+at the bottom left corner
+and we say 20px from the bottom
+and 20px from the left
+*/
+
+/* when the card is expanded
+it should have a transition 
+on the flex property with the 0.7s duration
+and with the ease-in effect /* 
+
+/* the h3 should be only shown, if the the panel is active
+so make the opacity: 0, to make them invisible */
+
+/* if the screen is very small
+we have 3 panels, instead of 5 
+to do that, we can add media query
+
+what that means, any styles that we put here 
+are onl going to take effect, 
+if the screen is under 480px
+
+then the container will be from 100vw to 90vw
+on small screens, so that it takes up a little more room
+
+plus the last 2 panels are removed
+by using pseudoselector
+*/
+
+/* we added transition on the opacity on the h3 when its active 
+with the duration of 0.3s ease-in and with a delay of 0.4s */
+/* now if we click on the panel
+it doesnt actually fade in
+until the card if fully expanded */
+
+/* margin: 0, get rid of the margin */
+/* display: flex makes all elements go horizontally, to the right, not down */
+/* flex-direction: column makes it go vertically */
+/* align items: if the flexbox is column, align items aligns them horizontally */
+/* if its a row, it will pertain to vertical */
+/* now we want to center the h1 and p tags vertically, but it doesnt go down */
+/* thats because the body has no height */
+/* height: 100vh means, it takes the entire height of the browser */
+/* overflow: hidden to avoid scrollbars to be shown by default */
